@@ -7,4 +7,5 @@ CONFIG = {
         '--workers=16',                                                         
         '--timeout=60',                                                         
         'hello.app',                                                           
-    ),   
+    ), 
+}
