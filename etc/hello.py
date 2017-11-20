@@ -5,7 +5,8 @@ CONFIG = {
     'args': (                                                                   
         '--bind=0.0.0.0:8080',                                              
         '--workers=4',                                                         
-        '--timeout=60',                                                         
+        '--timeout=60',
+        '--log-file=/home/box/web/error_gunicorn.log'                                                       
         'hello.application',                                                           
     ), 
 }
