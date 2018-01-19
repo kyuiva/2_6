@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Django </title>
+</head>
+<body>
+<h2> {{arg}} </h2>
+Страница: {{page.number}} из {{paginator.num_pages}}
+<li>
+    Базовый адрес: {{baseurl}}
+    <hr>
+    <!-- output title -->
+    {% for post in posts %}
+    <a href = "{{question_url}}{{post.id}}/">{{question_url}}{{post.id}}/  {{ post.title }} </a>
+<li>
+    {% endfor%}
+
+    <hr>
+
+    <!-- output paginator -->
+    {% for p in paginator.page_range %}
+    {% if p == page.number %}
+    <class="active">
+    {% else %}
+    {% endif %}
+    <a href = "{{baseurl}}{{p}}"> {{p}} </a>
+    {% endfor %}
+
+</body>
+
+</html>

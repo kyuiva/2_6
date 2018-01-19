@@ -7,7 +7,7 @@ echo "    def popular(self):" >> /home/box/web/ask/qa/models.py
 echo "        return self.order_by('-rating')" >> /home/box/web/ask/qa/models.py
 echo "" >> /home/box/web/ask/qa/models.py
 echo "class Question(models.Model):" >> /home/box/web/ask/qa/models.py
-echo "    objects = QuestionManager() >> /home/box/web/ask/qa/models.py
+echo "    objects = QuestionManager()" >> /home/box/web/ask/qa/models.py
 echo "    title = models.CharField(max_length=128)" >> /home/box/web/ask/qa/models.py
 echo "    text = models.TextField()" >> /home/box/web/ask/qa/models.py
 echo "    added_at = models.DateTimeField(blank = True, auto_now_add = True)" >> /home/box/web/ask/qa/models.py
