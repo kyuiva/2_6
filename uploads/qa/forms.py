@@ -30,7 +30,7 @@ class AskForm(forms.Form):
 class AnswerForm(forms.Form):
 
     text = forms.CharField(widget=forms.Textarea, label = 'Введите ответ здесь:') #
-    question = forms.CharField(widget=forms.HiddenInput()) #
+    question = forms.IntegerField(widget=forms.HiddenInput()) #
     # forms.ModelChoiceField(queryset = None)
 
     #def __init__(self, user, *args, **kwargs):

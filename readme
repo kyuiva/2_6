@@ -15,6 +15,16 @@ bash /home/box/web/init.sh
 # INSTALLED_APP добавляем 'qa'
 # прописываем путь к шаблонам TEMPLATES = [... 'DIRS': ['/home/box/web/ask/templates',]...]
 # DATABASES добавляем базу данных
+	'ENGINE': 'django.db.backends.mysql',
+        'NAME': 'stepik',
+        'USER': 'step',
+        'PASSWORD': '123',
+
+
+для прохождения теста 2.6 добавляем пользователя:
+python manage.py shell
+from django.contrib.auth.models import User
+user = User.objects.create_user('john', 'lennon@thebeatles.com', 'johnpassword').save().
 
 
 # создание символических ссылок
