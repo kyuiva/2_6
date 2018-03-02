@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title> Django </title>
+</head>
+
+<body>
+<p>Создание вопроса </p>
+<p> Токен:  {{csrf_token}} </p>
+<form method="POST" action="/ask/">
+    {% csrf_token %}
+    <p> {{form}} </p>
+    <input type="submit" class="button" value="Добавить" >
+</form>
+
+</body>
+
+</html>

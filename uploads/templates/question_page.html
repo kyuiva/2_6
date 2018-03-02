@@ -10,12 +10,28 @@
 <h4> {{post.text}} </h4>
 <li>
 <hr>
-
+Ответы
 <!-- output answer -->
 {% for a in answer %}
     {{a.text}}
     <li>
     <li>
 {% endfor %}
+
+<hr>
+    токен = {{csrf_token}}
+<hr>
+Добавить ответ
+    <form method="POST" action="/question/{{post.id}}/">
+        {% csrf_token %}
+        <p> {{form}} </p>
+        <input type="submit" class="button" value="Добавить" >
+    </form>
+<hr>
+{% for a in err %}
+    {{a}}
+    <li>
+{% endfor %}
+
 </body>
 </html>

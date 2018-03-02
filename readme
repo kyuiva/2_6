@@ -1,0 +1,13 @@
+# после шага 3_4_5_ конфигурируем файл /home/box/web/ask/ask/settings.py
+# ALLOWED_HOSTS = ['*']
+# INSTALLED_APP добавляем 'qa'
+# прописываем путь к шаблонам TEMPLATES = [... 'DIRS': ['/home/box/web/ask/templates',]...]
+# DATABASES добавляем базу данных
+
+
+# создание символических ссылок
+# sudo ?ln -s /home/box/web/etc/nginx.conf  /etc/nginx/sites-enabled/test.conf
+# sudo /etc/init.d/nginx restart
+# sudo ln -s /home/box/web/etc/gunicorn.conf   /etc/gunicorn.d/test
+# sudo /etc/init.d/gunicorn restart
+# sudo /etc/init.d/mysql start?

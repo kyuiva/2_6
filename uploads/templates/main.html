@@ -9,7 +9,14 @@
 Страница: {{page.number}} из {{paginator.num_pages}}
 <li>
 Базовый адрес: {{baseurl}}
+
 <hr>
+
+<!-- кнопка добавления вопроса-->
+    <button onclick="location.href='/ask/';"> Добавить вопрос </button>
+
+<hr>
+
 <!-- output title -->
 {% for post in posts %}
     <a href = "{{question_url}}{{post.id}}/">{{question_url}}{{post.id}}/  {{ post.title }} </a>

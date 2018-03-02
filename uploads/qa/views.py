@@ -1,9 +1,10 @@
 # -*- coding: utf-8 -*-
 from __future__ import unicode_literals
-from django.shortcuts import render_to_response
+from django.shortcuts import render_to_response, render
 from qa.models import Question, Answer
+from qa.forms import AskForm, AnswerForm
 from django.core.paginator import Paginator
-from django.http import Http404
+from django.http import Http404, HttpResponseRedirect
 # from  django.core.exceptions import DoesNotExist
 
 # Create your views here.
@@ -36,12 +37,25 @@ def question_page(request, id):
         question = Question.objects.get(id=id)
     except  Question.DoesNotExist:
         raise Http404
-
+    user = 1
+    if request.method == "POST":
+        form = AnswerForm(user, request.POST)
+        if form.is_valid():
+            url = "/question/" + str(id) + "/"
+            form.save()
+            # return HttpResponse("is valid!")
+            # return HttpResponseRedirect("/")
+            return HttpResponseRedirect(url)
+        else:
+            form.clean()
+    else:
+        form = AnswerForm(request, initial={'question': str(id)})
     answer = Answer.objects.filter(question_id = id)
 
-    return render_to_response('question_page.html', {
+    return render(request, 'question_page.html', {
         'post': question,
         'answer': answer,
+        'form': form,
     })
 
 def popular_sort_page(request):
@@ -60,3 +74,22 @@ def popular_sort_page(request):
         'baseurl': baseurl,
         'question_url': question_url,
         'arg': argum, } )
+
+def post_add(request):
+    user = 1
+    if request.method == "POST":
+
+        form = AskForm(user, request.POST)
+        if form.is_valid():
+            post = form.save()
+            url = "/question/" + str(post.id) + "/"
+          #  url = Concat(url, str(post.id), "/")
+            return HttpResponseRedirect(url)
+    else:
+        form = AskForm(request)
+    return render(request, 'askform.html', {
+        'form': form,
+    })
+
+
+
