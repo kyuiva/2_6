@@ -1,3 +1,15 @@
+локально добавляем удаленный репозиторий
+git remote add 2_6 https://github.com/kyuiva/2_6.git
+
+далее локальные измения записываем в удаленный репозиторий
+git push -u 2_6 master 
+
+на степике делаем следующее:
+git clone https://github.com/your_account/stepic_web_project.git /home/box/web .
+
+для запуска скриптов запуск следующий:
+bash /home/box/web/init.sh
+
 # после шага 3_4_5_ конфигурируем файл /home/box/web/ask/ask/settings.py
 # ALLOWED_HOSTS = ['*']
 # INSTALLED_APP добавляем 'qa'

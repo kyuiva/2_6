@@ -7,8 +7,11 @@ class AskForm(forms.Form):
     title = forms.CharField()
     text = forms.CharField()
 
-    def __init__(self, user, *args, **kwargs):
-        self._user = user
+    #def __init__(self, user, *args, **kwargs):
+    #    self._user = user
+    #    super(AskForm, self).__init__(*args, **kwargs)
+
+    def __init__(self, *args, **kwargs):
         super(AskForm, self).__init__(*args, **kwargs)
 
     def clean(self):
@@ -30,8 +33,11 @@ class AnswerForm(forms.Form):
     question = forms.CharField(widget=forms.HiddenInput()) #
     # forms.ModelChoiceField(queryset = None)
 
-    def __init__(self, user, *args, **kwargs):
-        self._user = user
+    #def __init__(self, user, *args, **kwargs):
+    #   self._user = user
+    #   super(AnswerForm, self).__init__(*args, **kwargs)
+
+    def __init__(self, *args, **kwargs):
         super(AnswerForm, self).__init__(*args, **kwargs)
 
     def clean(self):

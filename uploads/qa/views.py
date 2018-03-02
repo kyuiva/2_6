@@ -39,7 +39,8 @@ def question_page(request, id):
         raise Http404
     user = 1
     if request.method == "POST":
-        form = AnswerForm(user, request.POST)
+       # form = AnswerForm(user, request.POST)
+        form = AnswerForm(request.POST)
         if form.is_valid():
             url = "/question/" + str(id) + "/"
             form.save()
@@ -49,7 +50,8 @@ def question_page(request, id):
         else:
             form.clean()
     else:
-        form = AnswerForm(request, initial={'question': str(id)})
+        # form = AnswerForm(request, initial={'question': str(id)})
+        form = AnswerForm(initial={'question': str(id)})
     answer = Answer.objects.filter(question_id = id)
 
     return render(request, 'question_page.html', {
@@ -76,17 +78,19 @@ def popular_sort_page(request):
         'arg': argum, } )
 
 def post_add(request):
-    user = 1
+    # user = 1
     if request.method == "POST":
 
-        form = AskForm(user, request.POST)
+        # form = AskForm(user, request.POST)
+        form = AskForm(request.POST)
         if form.is_valid():
             post = form.save()
             url = "/question/" + str(post.id) + "/"
           #  url = Concat(url, str(post.id), "/")
             return HttpResponseRedirect(url)
     else:
-        form = AskForm(request)
+        #form = AskForm(request)
+        form = AskForm()
     return render(request, 'askform.html', {
         'form': form,
     })
